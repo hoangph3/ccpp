@@ -46,6 +46,7 @@ double giaDienBac5(int so_kWh) {
 int main() {
     int so_kWh;
     double gia_dien_cu, gia_dien_moi;
+    float vat = 0.1;
 
     printf("Nhap so kWh: ");
     scanf("%d", &so_kWh);
@@ -55,13 +56,13 @@ int main() {
 
     if (gia_dien_cu >= 0 && gia_dien_moi >= 0) {
         if (gia_dien_cu < gia_dien_moi) {
-            printf("Tien dien tang len: %.2lf VND\n", gia_dien_moi - gia_dien_cu);
+            printf("Tien dien tang len: %.2lf VND\n", (gia_dien_moi - gia_dien_cu) * (1 + vat));
         }
         else if (gia_dien_cu == gia_dien_moi) {
             printf("Tien dien giu nguyen\n");
         }
         else {
-            printf("Tien dien giam xuong: %.2lf VND\n", gia_dien_cu - gia_dien_moi);
+            printf("Tien dien giam xuong: %.2lf VND\n", (gia_dien_cu - gia_dien_moi) * (1 + vat));
         }
     }
     else {
